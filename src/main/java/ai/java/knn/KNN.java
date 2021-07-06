@@ -1,4 +1,4 @@
-package KNN;
+package ai.java.knn;
 import java.util.*;
 import java.util.concurrent.*;
 

@@ -1,4 +1,4 @@
-package Main;
+package ai.java.main;
 
 
 import java.util.ArrayList;

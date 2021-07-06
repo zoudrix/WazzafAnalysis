@@ -1,4 +1,4 @@
-package KMeans;
+package ai.java.kmeans;
 import java.util.Map;
 
 public interface Distance

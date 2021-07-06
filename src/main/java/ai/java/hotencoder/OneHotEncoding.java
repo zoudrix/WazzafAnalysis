@@ -1,4 +1,4 @@
-package HotEncoder;
+package ai.java.hotencoder;
 import org.apache.spark.ml.feature.OneHotEncoder;
 import org.apache.spark.ml.feature.OneHotEncoderModel;
 import org.apache.spark.ml.feature.StringIndexer;

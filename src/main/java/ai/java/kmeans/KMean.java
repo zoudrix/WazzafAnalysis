@@ -1,4 +1,4 @@
-package KMeans;
+package ai.java.kmeans;
 import org.apache.spark.ml.clustering.KMeansModel;
 import org.apache.spark.ml.clustering.KMeans;
 import org.apache.spark.ml.feature.VectorAssembler;
@@ -143,7 +143,7 @@ public class KMean
         return clusters.entrySet().stream().map(e -> average(e.getKey(), e.getValue())).collect(toList());
     }
 
-    public static void SparkKmeans(SparkSession sparkSession, Dataset<Row> dataset, int num_clusters, int num_iterations)
+    public static List<Vector> SparkKmeans(SparkSession sparkSession, Dataset<Row> dataset, int num_clusters, int num_iterations)
     {
         VectorAssembler assembler = new VectorAssembler()
                 .setInputCols(dataset.columns())
@@ -160,5 +160,6 @@ public class KMean
         for (Vector center: centers) {
             System.out.println(center);
         }
+        return Arrays.asList(centers);
     }
 }

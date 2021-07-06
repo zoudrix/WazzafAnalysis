@@ -1,4 +1,4 @@
-package KMeans;
+package ai.java.kmeans;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 

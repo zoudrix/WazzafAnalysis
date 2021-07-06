@@ -1,4 +1,4 @@
-package KNN;
+package ai.java.knn;
 
 public class SampleDistanceValue
 {
