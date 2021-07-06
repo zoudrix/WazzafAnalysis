@@ -1,6 +1,5 @@
 package Main;
 
-
 import org.apache.spark.sql.*;
 import java.util.*;
 import java.util.List;
@@ -16,8 +15,13 @@ public class EDA {
         this.sparkSession = sparkSession;
     }
 
-    public EDA(Dataset<Row> RowDataset) {
+    public EDA(SparkSession sparkSession, Dataset<Row> RowDataset) {
         this.RowDataset = RowDataset;
+    }
+
+    public EDA(SparkSession sparkSession, List<Job> jobList) {
+        this(sparkSession);
+        this.ConvertJobsToDatasetRow(jobList);
     }
 
     public Dataset<Row> getRowDataset() {
@@ -51,6 +55,11 @@ public class EDA {
 
     public void ShowDataset() {
         this.RowDataset.show();
+    }
+
+    public List<Row> GetSummeryDataset() {
+//        List<Row> rows = this.RowDataset.summary().collectAsList();
+        return this.RowDataset.summary().collectAsList();
     }
 
     public void ShowSummeryDataset() {

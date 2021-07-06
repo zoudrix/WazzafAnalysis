@@ -4,6 +4,8 @@ package Main;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -30,8 +32,9 @@ public class FileHandler {
         try {
             Thread thread = new Thread(() -> {
                 try {
-
-                    BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
+                    InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream(filePath);
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+//                    BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
                     String line = bufferedReader.readLine();
                     while ((line = bufferedReader.readLine()) != null) {
                         this.Lines.add(Arrays.asList(line.split(splitRegs)));
